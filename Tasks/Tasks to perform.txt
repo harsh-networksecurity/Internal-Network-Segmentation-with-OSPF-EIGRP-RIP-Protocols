@@ -1,0 +1,54 @@
+TASK 1
+Configure OSPF in Area 0 between R1, R2 & R3. Besides the physical links, enable the Loopback 0 interfaces of all 3 routers in Area 0. Loopbacks should be advertised with the Interface Mask. Hard Code the Router-id based on the following:
+R1 - 0.0.0.1
+R2 -0.0.0.2
+R3 - 0.0.0.3
+
+TASK 2
+Configure OSPF in Area 10 between R2, R4, R10 & R11. Besides the physical links, enable the Loopback 1 interface on R2 and all the loopbacks of the other 3 routers in Area 10. Loopbacks should be advertised with the Interface Mask. Hard Code the Router-id based on the following: R4-0.0.0.4
+R10-0.0.0.10
+R11 -0.0.0.11
+
+TASK 3
+Configure OSPF in Area 20 between R3, R5 & R6. Besides the physical links, enable the Loopback 0 interface on R3 & R6 and all the loopbacks on R5 in Area 20. Loopbacks should be advertised with the Interface Mask. Hard Code the Router-id based on the following:
+R5-0.0.0.5
+R6-0.0.0.6
+
+TASK 4
+Configure EIGRP is AS 111 between R1, R7 & R8. Enable all loopbacks on R7 & R8 in EIGRP 111.
+Enable Loopback 1 on R1 in EIGRP 111.
+
+TASK 5
+Configure EIGRP is AS 222 between R6 & R9. Enable all loopbacks on R9 in EIGRP 222. Enable Loopback 1 on R6 in EIGRP 222.
+
+TASK 6
+Configure Mutual Redistribution between the appropriate routers to allow end-to-end connectivity between all routing domains. Use Seed metric of your choice.
+
+TASK 7
+Configure Route Summarization on the appropriate ABR to summarize all the R11 Loopbacks.
+
+TASK 8
+Configure Route Summarization on the appropriate ASBR to summarize all the routes from the 107.0.0.0/8 major network towards OSPF. Use the longest mask for Route Summarization.
+TASK 9
+Configure LSA Filtering such that network 4.0.0.0/8 is not allowed to leave Area 10.
+
+TASK 10
+Configure the most secure authentication on all routers in Area's 0. Use a key of 1 and a key- string ccie123
+
+TASK 11
+Configure text authentication on all routers in 10. Use a key-string cisco.
+
+TASK 12
+Configure Area 10 such that it does not receive any External Routes. It should maintain connectivity to the External Routes. (Stub Area)
+
+TASK 13
+This step is a continuation of Task 1. Area 10 should also block Inter Area routes maintaining reachability to them. (Totally Stubby Area)
+
+TASK 14
+Configure Area 20 such that it does not receive any external routes from the backbone. The External routes from EIGRP 222 should continue to be received in Area 20 and propagated into the Backbone. (NSSA Area)
+
+TASK 15
+This step is a continuation of Task 3. Configure Area 20 such that the previous requirement is maintained but Area 20 should also have reachability to the external routes from the backbone (EIGRP Routes). (NSSA-Stub Area)
+
+TASK 16
+Configure Area 20 such that the Inter-Area routes are also blocked in addition to the external routes from the backbone. (NSSA-Totally Stubby Area)	
