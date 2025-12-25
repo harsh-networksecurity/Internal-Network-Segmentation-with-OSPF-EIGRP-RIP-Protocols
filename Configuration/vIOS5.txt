@@ -1,0 +1,38 @@
+enable
+configure terminal
+interface Loopback0
+ ip address 5.5.5.5 255.0.0.0
+ ip ospf network point-to-point
+!
+interface GigabitEthernet0/0
+ ip address 192.168.35.5 255.255.255.0
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/1
+ ip address 192.168.56.5 255.255.255.0
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/2
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/3
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+ media-type rj45
+!
+router ospf 1
+ router-id 0.0.0.5
+ area 20 nssa
+ network 5.0.0.0 0.0.0.255 area 20
+ network 192.168.35.0 0.0.0.255 area 20
+ network 192.168.56.0 0.0.0.255 area 20

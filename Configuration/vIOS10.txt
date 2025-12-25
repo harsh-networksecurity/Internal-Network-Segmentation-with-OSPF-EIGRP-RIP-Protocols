@@ -1,0 +1,42 @@
+enable
+configure terminal
+interface Loopback0
+ ip address 10.10.10.10 255.0.0.0
+ ip ospf network point-to-point
+!
+interface GigabitEthernet0/0
+ ip address 192.168.40.1 255.255.255.0
+ ip ospf authentication
+ ip ospf authentication-key cisco
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/1
+ ip address 192.168.110.10 255.255.255.0
+ ip ospf authentication
+ ip ospf authentication-key cisco
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/2
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/3
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+ media-type rj45
+!
+router ospf 1
+ router-id 0.0.0.10
+ area 10 stub
+ network 10.0.0.0 0.255.255.255 area 10
+ network 192.168.40.0 0.0.0.255 area 10
+ network 192.168.110.0 0.0.0.255 area 10

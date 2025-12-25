@@ -1,0 +1,40 @@
+enable
+configure terminal
+interface Loopback0
+ ip address 8.8.8.8 255.0.0.0
+!
+interface Loopback1
+ ip address 88.88.88.88 255.0.0.0
+!
+interface GigabitEthernet0/0
+ ip address 192.168.18.8 255.255.255.0
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/1
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/2
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/3
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+ media-type rj45
+!
+!
+router eigrp 111
+ network 8.0.0.0
+ network 88.0.0.0
+ network 192.168.18.0
